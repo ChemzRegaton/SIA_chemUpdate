@@ -17,12 +17,12 @@ class WeatherController extends Controller
         $client = new Client();
 
         try {
-            $response = $client->request('GET', 'https://open-weather13.p.rapidapi.com/city/landon/EN', [
+            $response = $client->request('GET', "https://$apiHost/city/$city/EN", [
                 'headers' => [
                     'x-rapidapi-host' => $apiHost,
                     'x-rapidapi-key' => $apiKey,
                 ],
-                'verify' => false 
+                'verify' => false
             ]);
 
             $data = json_decode($response->getBody(), true);
